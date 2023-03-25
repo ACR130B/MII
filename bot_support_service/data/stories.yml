@@ -1,0 +1,38 @@
+version: "3.1"
+
+stories:
+
+- story: solved connection problem
+  steps:
+    - intent: connection problem
+    - action: utter_ask_reboot_router
+    - action: utter_ask_is_solved
+    - intent: affirm
+    - action: utter_thanks_client
+
+- story: not solved connection problem
+  steps:
+    - intent: connection problem
+    - action: utter_ask_reboot_router
+    - action: utter_ask_is_solved
+    - intent: deny
+    - action: utter_ask_to_report
+
+- story: feel report fields
+  steps:
+    - action: utter_ask_to_report
+    - intent: affirm
+    - action: utter_ask_name
+    - intent: name
+    - action: utter_report_sent
+
+
+- story: ask account information
+  steps:
+    - intent: account information
+    - action: utter_check_info_in_app
+
+- story: call operator
+  steps:
+    - intent: call operator
+    - action: utter_call_operator

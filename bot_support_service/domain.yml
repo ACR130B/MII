@@ -1,0 +1,56 @@
+version: "3.1"
+
+intents:
+  - connection problem
+  - name
+  - account information
+  - call operator
+  - greet
+  - goodbye
+  - affirm
+  - deny
+
+entities:
+  - name
+
+slots:
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_text
+
+responses:
+  utter_ask_reboot_router:
+    - text: "Попробуйте перезагрузить роутер, если еще не пробовали"
+
+  utter_ask_is_solved:
+    - text: "Проблема решена?"
+
+  utter_thanks_client:
+    - text: "Рад был помочь"
+
+  utter_ask_to_report:
+    - text: "Хотите оставить обращение для детального рассмотрения?"
+
+  utter_ask_name:
+    - text: "Напишите как к вам обращаться"
+
+  utter_report_sent:
+    - text: "Ваша заявка была успешно составлена. Отчет придет по этому номеру"
+
+  utter_check_info_in_app:
+    - text: "Информацию по данному вопросу вы можете найди в своем аккаунте в приложении"
+
+  utter_call_operator:
+    - text: "Соединяю с оператором. Придется подождать некоторое время"
+
+  utter_greet:
+  - text: "Приветствую! Чем могу вам помочь"
+
+  utter_goodbye:
+  - text: "До свидания"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
